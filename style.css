@@ -1,0 +1,189 @@
+
+/* CSS RESET */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/*  Avoid orphans on paragraphs */
+p {
+    text-wrap: pretty;
+}
+
+/* A elements that don't have a class get default styles */
+a {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+  text-decoration: none;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+
+/* CUSTOM PROPERTIES */
+
+:root {
+    /* COLORS */
+
+    --clr-primary: #3a415b;
+    --clr-accent: #146bd5;
+    --clr-neutral: #fff;
+    --clr-bg: #f0f1f5;
+    --clr-error: #a50505;
+    --clr-success: #037603;
+
+    /* TYPOGRAPHY */
+
+    --ff-primary: 'Arial', 'Helvetica', sans-serif;
+    --fw-700: 700;
+    --italic: italic;
+    --fs-regular: 1.125rem;
+    --fs-small: 1rem;
+}
+
+
+/* UTILITIES */
+
+.flow {
+    --flow-space: 1.5rem;
+}
+
+.flow > * + * {
+    margin-block-start: var(--flow-space);
+}
+
+.text-small {
+  font-size: var(--fs-small);
+}
+
+.italic {
+  font-style: var(--italic);
+}
+
+.bold {
+  font-weight: var(--fw-700);
+}
+
+
+/* GENERAL STYLING */
+
+body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100svh;
+    background-color: var(--clr-bg);
+    color: var(--clr-primary);
+    font-family: var(--ff-primary);
+    font-size: var(--fs-regular);
+    line-height: 1.5;
+    text-align: center;
+}
+
+.card {
+    background-color: var(--clr-neutral);
+    border-radius: 10px;
+    padding: 4rem 3rem;
+    max-width: 35rem;
+    box-shadow: 0 1px 20px 2px rgba(0, 0, 0, .5);
+}
+
+.email-input {
+  width: 100%;
+  padding: .5em;
+}
+
+.submit {
+  border: transparent;
+  text-transform: capitalize;
+  padding: .5em 1em;
+  cursor: pointer;
+  background-color: var(--clr-accent);
+  color: var(--clr-neutral);
+  width: 100%;
+
+  &:is(:hover, :focus) {
+    opacity: .9;
+    transition: all .25s ease-in;
+  }
+}
+
+.testimonial-wrapper > * {
+  --flow-space: .25rem;
+}
+
+.form > * {
+  --flow-space: .75rem;
+}
+
+.email-wrapper > * {
+  --flow-space: .5rem;
+}
+
+.error {
+  color: var(--clr-error);
+  display: none;
+}
+
+.success {
+  color: var(--clr-success);
+  display: none;
+}
